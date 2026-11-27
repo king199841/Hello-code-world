@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>king199841 的代码世界</title>
+
+  <!-- 这一段是 CSS（样式）：管颜色、字体、间距 -->
   <style>
     body {
       background: #17171c;
@@ -10,15 +12,40 @@
       font-family: sans-serif;
       text-align: center;
       padding-top: 90px;
+      transition: background .35s;   /* 换色时有个渐变过渡 */
     }
     h1 { font-size: 42px; letter-spacing: 2px; }
     p  { color: #9a9aa8; font-size: 18px; }
     .tag { color: #7cd1ff; }
+    button {
+      margin-top: 32px;
+      padding: 12px 28px;
+      font-size: 16px;
+      color: #17171c;
+      background: #7cd1ff;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;              /* 鼠标移上去变成小手 */
+    }
   </style>
 </head>
+
 <body>
   <h1>你好，我是 king199841</h1>
   <p>平面设计 / 正在进入代码世界</p>
   <p class="tag">这是我用 HTML 写的第一张网页</p>
+
+  <!-- onclick（点击时触发）会把下面的 changeColor() 函数叫起来 -->
+  <button onclick="changeColor()">点我换个颜色</button>
+
+  <!-- 这一段是 JavaScript（脚本）：管“点一下之后发生什么” -->
+  <script>
+    const colors = ['#17171c', '#1f2a44', '#3a1f3d', '#0f3d33'];  // 数组：一串颜色
+    let i = 0;                                                    // 计数器
+    function changeColor() {
+      i = (i + 1) % colors.length;      // 取余数，让它在 0~3 之间循环
+      document.body.style.background = colors[i];
+    }
+  </script>
 </body>
 </html>
